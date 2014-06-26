@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  var pusher = new Pusher('f8604007eb842a4a3d89');
+  var channel = pusher.subscribe('comments');
+  
+  channel.bind('comment', function(data) {
+    alert('Worked');
+  });
+});
